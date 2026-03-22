@@ -1,8 +1,5 @@
 # 💱 Conversor de Moedas - React Native
 
-## 📱 Sobre o Projeto
-Aplicativo mobile desenvolvido como atividade prática para o curso de Sistemas de Informação da Universidade Estadual de Goiás (UEG). O objetivo principal do projeto é a implementação de uma funcionalidade baseada em um algoritmo estruturado, integrada a uma interface mobile interativa.
-
 ## ⚙️ Funcionalidades
 - Conversão dinâmica e bidirecional entre três moedas: **Dólar (USD)**, **Real (BRL)** e **Kwanza (AOA)**.
 - Interface intuitiva com seletores suspensos (Dropdown/Picker).
