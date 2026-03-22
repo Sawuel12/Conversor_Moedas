@@ -1,50 +1,31 @@
-# Welcome to your Expo app 👋
+# 💱 Conversor de Moedas - React Native
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## 📱 Sobre o Projeto
+Aplicativo mobile desenvolvido como atividade prática para o curso de Sistemas de Informação da Universidade Estadual de Goiás (UEG). O objetivo principal do projeto é a implementação de uma funcionalidade baseada em um algoritmo estruturado, integrada a uma interface mobile interativa.
 
-## Get started
+## ⚙️ Funcionalidades
+- Conversão dinâmica e bidirecional entre três moedas: **Dólar (USD)**, **Real (BRL)** e **Kwanza (AOA)**.
+- Interface intuitiva com seletores suspensos (Dropdown/Picker).
+- Tratamento de entrada de dados (teclado numérico otimizado e substituição de vírgulas por pontos).
+- Atualização de estado em tempo real com React Hooks (`useState`).
 
-1. Install dependencies
+## 🧠 O Algoritmo Estruturado
+O núcleo de conversão do aplicativo foi projetado com foco em escalabilidade e manutenção simplificada, separando estritamente a regra de negócio da interface de usuário (conceito fundamental em padrões de projeto de software). 
 
-   ```bash
-   npm install
-   ```
+A lógica matemática, localizada em `src/utils/conversor.js`, utiliza a estratégia de **Moeda Base**. Em vez de mapear fórmulas individuais para cada combinação possível de moedas (o que geraria um código complexo e repetitivo), o algoritmo opera em duas etapas contínuas:
 
-2. Start the app
+1. **Normalização:** O valor inserido pelo usuário na moeda de origem é dividido pela sua respectiva taxa de câmbio, convertendo-o para a "moeda base" do sistema (neste caso, o Dólar, com peso `1.00`).
+2. **Conversão Final:** O valor normalizado (em Dólares) é então multiplicado pela taxa de câmbio da moeda de destino escolhida, retornando o resultado formatado em até duas casas decimais.
 
-   ```bash
-   npx expo start
-   ```
+## 🛠️ Tecnologias e Ferramentas
+- **React Native** (Framework base)
+- **Expo** (Build e testes)
+- **JavaScript** (Lógica e algoritmo)
+- **@react-native-picker/picker** (Componente de seleção)
+- **JSDoc** (Documentação interna do código-fonte)
 
-In the output, you'll find options to open the app in a
+## 🏗️ Estrutura Visual e Estilização
+Diferente do desenvolvimento web tradicional, este projeto mobile não utiliza arquivos `.html` ou `.css`. A interface foi construída seguindo a arquitetura padrão do React Native:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- **Estrutura (JSX/TSX):** A construção visual utiliza componentes nativos do framework (como `<View>`, `<Text>` e `<TextInput>`), que substituem as tags HTML tradicionais. Esses componentes são compilados diretamente para os elementos de interface nativos do iOS e Android.
+- **Estilização (StyleSheet):** As regras de design e estilização, localizadas no final do arquivo principal em `app/(tabs)/index.tsx`, foram implementadas utilizando objetos via API `StyleSheet`. O design segue a lógica do CSS-in-JS, mantendo a estilização encapsulada e organizada no próprio componente.
